@@ -1,0 +1,41 @@
+{
+	"name" : "Timer", 
+	"version" : "1.0", 
+	"description" : "Time chrome extention",
+	"manifest_version": 2,
+	
+	"background": { "scripts": [ "background.js" ]},
+	"content_scripts": [
+    {
+      "matches": [
+                "http://*/*",
+                "https://*/*"
+            ],
+      "js": [ "jquery.js", "background.js", "content.js" ],
+	  "run_at": "document_end"
+    }
+  ],
+
+  "permissions": [
+  "tabs",
+  "bookmarks",
+  "unlimitedStorage",
+  "contextMenus",
+  "storage",
+  "geolocation",
+  "topSites",
+  "webNavigation",
+  "http://*/*",
+  "webRequest",
+  "webRequestBlocking"
+],
+  
+  "browser_action": {
+        "default_title": "Time",
+        "default_popup": "popup.html"
+    },
+	
+	"web_accessible_resources": [
+    "/injected.js"
+  ]
+}
